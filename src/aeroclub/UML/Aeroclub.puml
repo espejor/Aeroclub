@@ -1,0 +1,40 @@
+@startuml
+
+class Aeroclub
+abstract class Aeronave
+abstract class Marca
+abstract class Modelo
+
+
+Aeronave <|-- Avion
+Aeronave <|-- Helicoptero
+Aeronave <|-- Dron
+
+Marca <|-- MarcaAvion
+Marca <|-- MarcaHeli
+
+Modelo <|-- ModeloAvion
+Modelo <|-- ModeloHeli
+
+Marca <- Modelo
+Modelo <-- Aeronave
+
+Persona <|-- Usuario
+Usuario <|-- Piloto
+Piloto <|-- Socio
+
+
+Aeroclub o-- Aeronave
+Aeroclub o-- Piloto
+Aeroclub *-- Reserva
+
+Reserva -> Piloto
+Aeronave <- Reserva
+
+
+
+
+
+
+
+@enduml

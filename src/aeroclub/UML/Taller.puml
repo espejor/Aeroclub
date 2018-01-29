@@ -1,0 +1,105 @@
+@startuml
+
+class Taller{
+- nombre: String
+- empleados: ArrayList<Empleado>
+- hangar: ArrayList<AeronaveEnReparacion>
+- cuadrillas: ArrayList<Cuadrilla>
+}
+
+class AeronaveEnReparacion{
+- encargados: ArrayList<Empleado>
+}
+
+class Aeronave{
+}
+
+
+
+class Empleado{
+- salario: Salario
+- claveContrato: int
+}
+
+class Directivo{
+- cargo: String
+}
+
+class Administrativo{
+- categoria: String
+}
+
+class Mantenimiento{
+- especialidad: String
+- cuadrilla: Cuadrilla
+}
+
+class Ingeniero{
+- ingenieria: String
+- cuadrilla: Cuadrilla
+}
+
+class JefeDeCuadrilla{
+- encargadoDeLaCuadrilla: int
+}
+
+class Salario{
+- salarioBase: double
+- contingenciaComunesTrabajador: double
+- contingenciaComunesEmpresa: double
+- desempleoEmpresa: double
+- desempleoTrabajador: double
+- accidenteTrabajo: double
+- formacionEmpresa: double
+- formacionTrabajador: double
+- fogasa: double
+}
+
+class Aeroclub{
+- talleres: Taller
+}
+
+class Cuadrilla{
+- nombre: String
+- cuadrilla: String
+- especializacion: String
+- asignados: ArrayList<Empleados>
+}
+
+class Persona{
+}
+
+Taller <--o Aeroclub
+
+Persona <|-- Empleado
+
+Empleado <--o Taller
+
+Empleado <|-- Directivo
+
+Empleado <|-- Mantenimiento
+
+Empleado <|-- Administrativo
+
+Empleado <|-- Ingeniero
+
+Ingeniero <|-- JefeDeCuadrilla
+
+Empleado --> Salario
+
+Cuadrilla o--> Empleado
+
+Aeronave <|-- AeronaveEnReparacion
+
+Cuadrilla --o Taller
+
+AeronaveEnReparacion --o Taller
+
+
+
+
+
+
+
+
+@enduml
